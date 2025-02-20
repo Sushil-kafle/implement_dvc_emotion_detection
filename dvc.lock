@@ -5,13 +5,12 @@ stages:
     deps:
     - path: src/data_ingestion.py
       hash: md5
-      md5: 55c02ceb4a661cb020e4647598cffda1
-      size: 1114
+      md5: 6964411171f13fe777c9cb9a6e33fcab
+      size: 1081
     params:
       params.yaml:
         data_ingestion:
           url: parulpandey/emotion-dataset
-          test_size: 0.25
     outs:
     - path: data/raw
       hash: md5
@@ -59,7 +58,7 @@ stages:
     outs:
     - path: data/features
       hash: md5
-      md5: d510c7e9066edd1394a54e8c3807d40f.dir
+      md5: 9f4fda4ad5ddc0170bb7009572835f93.dir
       size: 32820941
       nfiles: 2
   model_building:
@@ -67,7 +66,7 @@ stages:
     deps:
     - path: data/features
       hash: md5
-      md5: d510c7e9066edd1394a54e8c3807d40f.dir
+      md5: 9f4fda4ad5ddc0170bb7009572835f93.dir
       size: 32820941
       nfiles: 2
     - path: src/model_building.py
@@ -77,16 +76,16 @@ stages:
     outs:
     - path: model/
       hash: md5
-      md5: bea425e7724e8fb3d49dad781e2c3c3c.dir
-      size: 102681
+      md5: 97c4b54a8be38bd30762a4df23a9dfba.dir
+      size: 102682
       nfiles: 1
   model_evaulation:
     cmd: python src/model_evaluation.py
     deps:
     - path: model/
       hash: md5
-      md5: bea425e7724e8fb3d49dad781e2c3c3c.dir
-      size: 102681
+      md5: 97c4b54a8be38bd30762a4df23a9dfba.dir
+      size: 102682
       nfiles: 1
     - path: src/model_evaluation.py
       hash: md5
@@ -95,6 +94,6 @@ stages:
     outs:
     - path: output
       hash: md5
-      md5: 7b8ec7c57b26a6fdfaf580e4465dbb78.dir
+      md5: 66a45f9430b3298985015ce7ac146145.dir
       size: 591
       nfiles: 1

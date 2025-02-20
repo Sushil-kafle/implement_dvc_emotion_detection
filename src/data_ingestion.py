@@ -39,7 +39,6 @@ def save_data(
 
 
 url = params["url"]
-test_size = params["test_size"]
 
 
 def main():
