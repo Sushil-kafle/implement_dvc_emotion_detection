@@ -1,0 +1,11 @@
+data_ingestion:
+  url: "parulpandey/emotion-dataset"
+  test_size: 0.25
+
+data_preprocessing:
+  min_words: 4
+
+
+feature_engineering:
+  max_features: 1000
+

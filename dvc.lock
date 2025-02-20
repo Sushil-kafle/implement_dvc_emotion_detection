@@ -1,0 +1,100 @@
+schema: '2.0'
+stages:
+  data_ingestion:
+    cmd: python src/data_ingestion.py
+    deps:
+    - path: src/data_ingestion.py
+      hash: md5
+      md5: 3b8b9a468f058201b10f86dc95e4b413
+      size: 1168
+    params:
+      params.yaml:
+        data_ingestion:
+          url: parulpandey/emotion-dataset
+          test_size: 0.25
+    outs:
+    - path: data/raw
+      hash: md5
+      md5: e9175458f7d7a44b04a3368d332dc7bc.dir
+      size: 1814730
+      nfiles: 2
+  data_preprocessing:
+    cmd: python src/data_preprocessing.py
+    deps:
+    - path: data/raw
+      hash: md5
+      md5: e9175458f7d7a44b04a3368d332dc7bc.dir
+      size: 1814730
+      nfiles: 2
+    - path: src/data_preprocessing.py
+      hash: md5
+      md5: 15a6e4c3b802c8620ab8f43c406f40f3
+      size: 2403
+    params:
+      params.yaml:
+        data_preprocessing:
+          min_words: 4
+    outs:
+    - path: data/processed
+      hash: md5
+      md5: 128bd7c2df8c4697f933545069f666fc.dir
+      size: 1132612
+      nfiles: 2
+  feature_engineering:
+    cmd: python src/feature_engineering.py
+    deps:
+    - path: data/processed
+      hash: md5
+      md5: 128bd7c2df8c4697f933545069f666fc.dir
+      size: 1132612
+      nfiles: 2
+    - path: src/feature_engineering.py
+      hash: md5
+      md5: ec631c66bbf45a4cb28c363b57cbf4b8
+      size: 1016
+    params:
+      params.yaml:
+        feature_engineering:
+          max_features: 1000
+    outs:
+    - path: data/features
+      hash: md5
+      md5: d510c7e9066edd1394a54e8c3807d40f.dir
+      size: 32820941
+      nfiles: 2
+  model_building:
+    cmd: python src/model_building.py
+    deps:
+    - path: data/features
+      hash: md5
+      md5: d510c7e9066edd1394a54e8c3807d40f.dir
+      size: 32820941
+      nfiles: 2
+    - path: src/model_building.py
+      hash: md5
+      md5: c51593374d7a29a2d6bce0b9a1541b63
+      size: 435
+    outs:
+    - path: model/
+      hash: md5
+      md5: bea425e7724e8fb3d49dad781e2c3c3c.dir
+      size: 102681
+      nfiles: 1
+  model_evaulation:
+    cmd: python src/model_evaluation.py
+    deps:
+    - path: model/
+      hash: md5
+      md5: bea425e7724e8fb3d49dad781e2c3c3c.dir
+      size: 102681
+      nfiles: 1
+    - path: src/model_evaluation.py
+      hash: md5
+      md5: 6597f0fee5e4f0434e47170228b8b872
+      size: 673
+    outs:
+    - path: output
+      hash: md5
+      md5: 7b8ec7c57b26a6fdfaf580e4465dbb78.dir
+      size: 591
+      nfiles: 1
