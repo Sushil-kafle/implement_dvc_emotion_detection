@@ -5,3 +5,7 @@ dvc repro
 
 dvc stage add -n data_preprocessing -d src/data_preprocessing.py -o data/preprocessed python src/data_preprocessing.py
 
+
+dvc remote add -d myremote C:\Users\Ripple\Desktop\New_folder
+
+dvc push
