@@ -1,5 +1,6 @@
 [core]
     analytics = false
-    remote = myremote
-['remote "myremote"']
-    url = C:\Users\Ripple\Desktop\New_folder\
+    remote = dvcstore
+
+['remote "dvcstore"']
+    url = s3://personalbucket11

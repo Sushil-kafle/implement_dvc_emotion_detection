@@ -9,3 +9,6 @@ dvc stage add -n data_preprocessing -d src/data_preprocessing.py -o data/preproc
 dvc remote add -d myremote C:\Users\Ripple\Desktop\New_folder
 
 dvc push
+
+
+dvc remote add -d dvcstore s3://personalbucket11
