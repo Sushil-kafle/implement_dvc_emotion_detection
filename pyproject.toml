@@ -4,4 +4,11 @@ version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "dvc>=3.59.1",
+    "kagglehub>=0.3.9",
+    "nltk>=3.9.1",
+    "pandas>=2.2.3",
+    "python-dotenv>=1.0.1",
+    "scikit-learn>=1.6.1",
+]
