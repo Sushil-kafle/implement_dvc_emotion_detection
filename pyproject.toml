@@ -8,8 +8,14 @@ dependencies = [
     "awscli>=1.37.23",
     "dvc[s3]>=3.59.1",
     "kagglehub>=0.3.9",
+    "mlflow>=2.20.4",
     "nltk>=3.9.1",
     "pandas>=2.2.3",
     "python-dotenv>=1.0.1",
     "scikit-learn>=1.6.1",
+]
+
+[tool.uv]
+dev-dependencies = [
+    "ipykernel>=6.29.5",
 ]

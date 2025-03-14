@@ -27,7 +27,7 @@ jobs:
           python-version-file: ".python-version"
 
       - name: "Install packages"
-        run: "uv sync"
+        run: "uv sync --no-dev"
 
       - name: "Run pipeline"
         run: "uv run dvc repro"
